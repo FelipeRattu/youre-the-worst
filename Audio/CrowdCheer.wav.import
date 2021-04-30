@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/CrowdCheer.wav-c089a16ffe167ca6bd884b1246519e37.sample"
+
+[deps]
+
+source_file="res://Audio/CrowdCheer.wav"
+dest_files=[ "res://.import/CrowdCheer.wav-c089a16ffe167ca6bd884b1246519e37.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

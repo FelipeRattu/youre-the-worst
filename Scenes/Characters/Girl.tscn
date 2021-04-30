@@ -1,0 +1,116 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://Animations/Oponents/Girl/GirlRun.tres" type="Animation" id=1]
+[ext_resource path="res://Scripts/Oponent/Girl/Girl.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Oponent/Girl/GirlPrimaryStateMachine.gd" type="Script" id=3]
+[ext_resource path="res://Animations/Oponents/Girl/GirlIdle.tres" type="Animation" id=4]
+[ext_resource path="res://Animations/Oponents/Girl/GirlWin.tres" type="Animation" id=5]
+[ext_resource path="res://Animations/Oponents/Girl/GirlSlide.tres" type="Animation" id=6]
+[ext_resource path="res://Animations/Oponents/Girl/GirlJump.tres" type="Animation" id=7]
+[ext_resource path="res://Animations/Oponents/Girl/GirlFall.tres" type="Animation" id=8]
+[ext_resource path="res://Animations/Oponents/Girl/GirlLose.tres" type="Animation" id=9]
+[ext_resource path="res://Sprites/Oponents/Girl/GirlSteer.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Oponent/Girl/GirlSecondaryStateMachine.gd" type="Script" id=11]
+[ext_resource path="res://Animations/Oponents/Girl/GirlNone.tres" type="Animation" id=12]
+[ext_resource path="res://Animations/Oponents/Girl/GirlCrouch.tres" type="Animation" id=13]
+[ext_resource path="res://Audio/RollerRolling.wav" type="AudioStream" id=14]
+[ext_resource path="res://Audio/RollerJump.wav" type="AudioStream" id=15]
+[ext_resource path="res://Audio/RollerFall.wav" type="AudioStream" id=16]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 15 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10, 5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 35, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 10, 30 )
+
+[node name="Girl" type="KinematicBody2D" groups=[
+"Oponent",
+]]
+z_index = 3
+z_as_relative = false
+collision_layer = 1024
+collision_mask = 4096
+script = ExtResource( 2 )
+weightUp = 600.0
+weightDown = 1500.0
+maxSpeed = 300.0
+acceleration = 4.0
+jumpForce = 420.0
+
+[node name="PrimaryGirlSprite" type="Sprite" parent="."]
+texture = ExtResource( 10 )
+hframes = 6
+
+[node name="GirlBox" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 0 )
+shape = SubResource( 1 )
+
+[node name="PrimaryStateMachine" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="PrimaryAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/GirlFall = ExtResource( 8 )
+anims/GirlIdle = ExtResource( 4 )
+anims/GirlJump = ExtResource( 7 )
+anims/GirlLose = ExtResource( 9 )
+anims/GirlRun = ExtResource( 1 )
+anims/GirlSlide = ExtResource( 6 )
+anims/GirlWin = ExtResource( 5 )
+
+[node name="SecondaryStateMachine" type="Node" parent="."]
+script = ExtResource( 11 )
+
+[node name="SecondaryAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/GirlCrouch = ExtResource( 13 )
+anims/GirlNone = ExtResource( 12 )
+
+[node name="GroundDetectionBox" type="Area2D" parent="." groups=[
+"Foot",
+]]
+collision_layer = 2048
+collision_mask = 4096
+
+[node name="GroundDetectionBox" type="CollisionShape2D" parent="GroundDetectionBox"]
+modulate = Color( 0.168627, 0.815686, 0.0784314, 1 )
+position = Vector2( 2, 20 )
+shape = SubResource( 2 )
+
+[node name="ObstacleUp" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 32768
+
+[node name="ObstacleUp" type="CollisionShape2D" parent="ObstacleUp"]
+position = Vector2( 10, -25 )
+shape = SubResource( 3 )
+
+[node name="ObstacleFront" type="Area2D" parent="."]
+collision_layer = 65536
+collision_mask = 32768
+
+[node name="ObstacleFront" type="CollisionShape2D" parent="ObstacleFront"]
+position = Vector2( 55, 30 )
+shape = SubResource( 4 )
+
+[node name="Fall" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 16 )
+bus = "FX"
+
+[node name="Jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 15 )
+bus = "FX"
+
+[node name="Roll" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 14 )
+bus = "FX"
+[connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
+[connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
+[connection signal="area_entered" from="ObstacleUp" to="." method="_on_ObstacleUp_area_entered"]
+[connection signal="area_exited" from="ObstacleUp" to="." method="_on_ObstacleUp_area_exited"]
+[connection signal="area_entered" from="ObstacleFront" to="." method="_on_ObstacleFront_area_entered"]
+[connection signal="area_exited" from="ObstacleFront" to="." method="_on_ObstacleFront_area_exited"]

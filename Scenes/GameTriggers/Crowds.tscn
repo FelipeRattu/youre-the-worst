@@ -1,0 +1,970 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/GameTriggers/Crowd.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/GameTriggers/Crowd.gd" type="Script" id=2]
+
+[node name="Crowds" type="Node2D"]
+visible = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Crowd" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -496, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd2" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -472, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd3" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -488, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd4" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -464, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd5" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -496, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd6" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -456, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd7" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -432, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd8" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -448, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd9" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -424, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd10" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -456, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd11" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -416, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd12" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -392, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd13" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -408, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd14" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -384, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd15" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -416, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd16" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -376, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd17" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -352, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd18" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -368, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd19" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -344, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd20" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -376, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd21" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -336, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd22" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -312, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd23" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -328, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd24" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -304, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd25" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -336, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd26" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -296, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd27" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -272, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd28" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -288, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd29" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -264, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd30" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -296, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd31" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd32" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -232, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd33" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -248, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd34" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -224, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd35" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -256, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd36" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -216, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd37" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -192, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd38" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -208, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd39" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -184, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd40" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -216, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd41" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -176, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd42" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -152, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd43" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -168, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd44" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -144, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd45" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -176, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd46" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -136, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd47" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -112, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd48" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -128, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd49" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -104, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd50" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -136, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd51" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -96, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd52" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -72, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd53" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -88, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd54" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -64, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd55" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -96, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd56" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd57" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -32, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd58" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -48, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd59" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -24, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd60" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -56, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd61" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd62" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 8, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd63" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -8, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd64" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 16, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd65" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -16, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd66" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd67" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 48, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd68" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd69" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd70" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 24, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd71" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd72" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 88, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd73" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd74" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 96, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd75" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 64, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd76" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd77" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 128, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd78" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 112, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd79" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 136, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd80" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 104, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd81" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 144, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd82" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 168, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd83" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 152, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd84" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 176, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd85" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 144, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd86" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd87" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd88" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 192, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd89" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 216, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd90" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 184, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd91" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd92" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 248, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd93" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 232, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd94" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 256, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd95" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 224, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd96" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 264, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd97" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 288, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd98" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 272, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd99" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 296, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd100" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 264, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd101" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd102" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 328, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd103" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 312, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd104" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 336, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd105" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 304, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd106" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 344, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd107" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 368, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd108" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd109" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 376, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd110" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 344, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd111" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd112" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 408, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd113" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 392, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd114" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 416, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd115" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 384, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd116" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 424, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd117" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 448, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd118" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 432, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd119" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 456, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd120" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 424, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd121" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 464, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd122" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 488, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd123" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 472, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd124" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 496, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd125" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 464, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd126" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 504, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd127" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 528, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd128" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 512, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd129" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 536, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd130" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 504, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd131" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd132" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 568, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd133" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 552, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd134" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 576, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd135" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 544, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd136" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 584, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd137" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 608, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd138" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 592, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd139" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 616, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd140" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 584, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd141" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 624, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd142" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 648, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd143" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 632, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd144" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 656, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd145" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 624, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd146" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd147" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 688, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd148" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 672, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd149" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 696, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd150" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 664, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd151" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 704, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd152" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 728, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd153" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 712, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd154" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 736, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd155" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 704, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd156" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 744, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd157" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 768, 96 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd158" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 752, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd159" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 776, 104 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="Crowd160" type="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( 744, 112 )
+z_index = 5
+z_as_relative = false
+script = ExtResource( 2 )

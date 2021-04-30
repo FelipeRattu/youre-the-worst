@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Scenes/Obstacles/OponentObstacleUpsideDown.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Obstacles/ObstacleUpsideDown.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Obstacles/Obstacle.gd" type="Script" id=3]
+
+[node name="UpObstacle" type="Node2D"]
+position = Vector2( 1040, 0 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Obstacle2" type="StaticBody2D" parent="." groups=[
+"Hitbox",
+] instance=ExtResource( 2 )]
+position = Vector2( 144, 32 )
+z_index = 2
+z_as_relative = false
+collision_layer = 32
+collision_mask = 65
+script = ExtResource( 3 )
+
+[node name="OponentObstacle2" type="StaticBody2D" parent="." groups=[
+"Hitbox",
+] instance=ExtResource( 1 )]
+position = Vector2( 136, -80 )
+z_index = 2
+z_as_relative = false
+collision_layer = 32768
+collision_mask = 1024
+script = ExtResource( 3 )

@@ -1,0 +1,175 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/GameTriggers/Track.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/GameTriggers/FinishLine.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Obstacles/OponentObstacle.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Obstacles/ObstacleUpside.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Obstacles/UpObstacle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Characters/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/GameTriggers/Crowds.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Characters/Cowboy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Levels/Level2.gd" type="Script" id=9]
+
+[node name="Level2" type="Node2D"]
+script = ExtResource( 9 )
+
+[node name="Tracks" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Track" parent="Tracks" instance=ExtResource( 1 )]
+
+[node name="Track2" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 992, 0 )
+
+[node name="Track3" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 1984, 0 )
+
+[node name="Track4" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 2976, 0 )
+
+[node name="Track5" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 3968, 0 )
+
+[node name="Track6" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 4960, 0 )
+
+[node name="Track7" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 5944, 0 )
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="UpObstacle" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 864, 0 )
+
+[node name="UpObstacle2" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 1568, 0 )
+
+[node name="UpObstacle3" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 2080, 0 )
+
+[node name="UpObstacle4" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 3032, 0 )
+
+[node name="UpObstacle5" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 3192, 0 )
+
+[node name="UpObstacle6" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 3992, 0 )
+
+[node name="UpObstacle7" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 4176, 0 )
+
+[node name="Obstacle" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 496, 64 )
+
+[node name="OponentObstacle" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 496, -40 )
+
+[node name="Obstacle3" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 784, 64 )
+
+[node name="OponentObstacle3" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 784, -40 )
+
+[node name="Obstacle4" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 1168, 64 )
+
+[node name="OponentObstacle4" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 1168, -40 )
+
+[node name="Obstacle5" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 1488, 64 )
+
+[node name="OponentObstacle5" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 1488, -40 )
+
+[node name="Obstacle9" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 1984, 64 )
+
+[node name="OponentObstacle9" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 1984, -40 )
+
+[node name="Obstacle6" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 2480, 64 )
+
+[node name="OponentObstacle6" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 2480, -40 )
+
+[node name="Obstacle10" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 2704, 64 )
+
+[node name="OponentObstacle10" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 2704, -40 )
+
+[node name="Obstacle11" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 2936, 64 )
+
+[node name="OponentObstacle11" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 2936, -40 )
+
+[node name="Obstacle7" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 3472, 64 )
+
+[node name="OponentObstacle7" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 3472, -40 )
+
+[node name="Obstacle12" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 3792, 64 )
+
+[node name="OponentObstacle12" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 3792, -40 )
+
+[node name="Obstacle8" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 4464, 64 )
+
+[node name="OponentObstacle8" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 4464, -40 )
+
+[node name="Obstacle13" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 4744, 64 )
+
+[node name="OponentObstacle13" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 4744, -40 )
+
+[node name="Obstacle2" parent="Obstacles" instance=ExtResource( 4 )]
+position = Vector2( 192, 64 )
+
+[node name="OponentObstacle2" parent="Obstacles" instance=ExtResource( 3 )]
+position = Vector2( 192, -40 )
+
+[node name="CrowdGroup" type="Node2D" parent="."]
+
+[node name="Crowds" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+
+[node name="Crowds2" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 1288, 0 )
+
+[node name="Crowds3" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 2576, 0 )
+
+[node name="Crowds4" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 3864, 0 )
+
+[node name="Crowds5" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 5152, 0 )
+
+[node name="Crowds6" parent="CrowdGroup" instance=ExtResource( 7 )]
+visible = true
+position = Vector2( 6440, 0 )
+
+[node name="FinishLine" parent="." instance=ExtResource( 2 )]
+position = Vector2( 4965, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+position = Vector2( -160, 32 )
+
+[node name="Cowboy" parent="." instance=ExtResource( 8 )]
+position = Vector2( -160, -72 )
