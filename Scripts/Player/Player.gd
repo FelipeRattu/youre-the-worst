@@ -57,6 +57,7 @@ func input_x_axis():
 func input_y_axis():
 	directionY = -int(Input.is_action_just_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
 
+# Called in the animation player
 func finished_idle():
 	hasIdled = true
 	$Roll.play()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/PrimaryStateMachine.gd" type="Script" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Sprites/Player/DieBack.png" type="Texture" id=13]
 [ext_resource path="res://Animations/Player/BackFall.tres" type="Animation" id=14]
 [ext_resource path="res://Animations/Player/Crouch.tres" type="Animation" id=15]
-[ext_resource path="res://Sprites/Player/Blow.png" type="Texture" id=16]
 [ext_resource path="res://Animations/Player/FrontFall.tres" type="Animation" id=17]
 [ext_resource path="res://Animations/Player/None.tres" type="Animation" id=18]
 [ext_resource path="res://Sprites/Player/Lose.png" type="Texture" id=19]
@@ -279,13 +278,14 @@ pushbackForce = Vector2( 50, 150 )
 slowdownForce = 50.0
 
 [node name="PlayerSpritePrimary" type="Sprite" parent="."]
-texture = ExtResource( 9 )
+visible = false
+texture = ExtResource( 13 )
 hframes = 5
+frame = 1
 
 [node name="PlayerSpriteSecondary" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 16 )
-hframes = 4
+texture = ExtResource( 13 )
+hframes = 5
 
 [node name="PlayerBox" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 1 )
@@ -416,6 +416,7 @@ bus = "FX"
 stream = ExtResource( 28 )
 volume_db = 15.0
 bus = "FX"
+
 [connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
 [connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
