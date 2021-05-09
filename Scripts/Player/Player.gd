@@ -105,6 +105,12 @@ func check_if_is_too_slow():
 	elif GameManager.causeOfGameOver != "Win" and GameManager.causeOfGameOver != "Lose":
 		GameManager.causeOfGameOver = "Death"
 
+
+func toggle_collisions(toggle : bool):
+	$Hurtbox/Hurtbox.set_deferred("disabled", !toggle)
+	$ObstacleDetectionBack/ObstacleDetectionBack.set_deferred("disabled", !toggle)
+	$ObstacleDetectionFront/ObstacleDetectionFront.set_deferred("disabled", !toggle)
+
 func _on_GroundDetectionBox_body_entered(body):
 	if body.is_in_group("Ground"):
 		isOnGround = true
@@ -121,8 +127,8 @@ func _on_Hurtbox_area_entered(area):
 		isDead = true
 		$HitObstacle.play()
 		GameManager.causeOfGameOver = "Death"
-		$ObstacleDetectionBack/ObstacleDetectionBack.set_deferred("disabled", true)
-		$ObstacleDetectionFront/ObstacleDetectionFront.set_deferred("disabled", true)
+		toggle_collisions(false)
+		
 
 func _on_ObstacleDetectionFront_area_entered(area):
 	if area.is_in_group("Hitbox"):

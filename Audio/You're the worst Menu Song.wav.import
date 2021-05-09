@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/You're the worst Menu Song.wav-81eff5c8ffa5827a5c8077d7071535a3.sample"
+
+[deps]
+
+source_file="res://Audio/You're the worst Menu Song.wav"
+dest_files=[ "res://.import/You're the worst Menu Song.wav-81eff5c8ffa5827a5c8077d7071535a3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

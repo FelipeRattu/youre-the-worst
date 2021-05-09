@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Fonts/8bitOperatorPlus8-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Placeholders/PlaceholderSprite.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Placeholders/Roller.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GameTriggers/Menu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameTriggers/InstructionsMenu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Placeholders/PlaceholderSpritePressed.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Placeholders/PlaceholderSpriteHover.png" type="Texture" id=7]
+[ext_resource path="res://Audio/You're the worst Menu Song.wav" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -89,10 +92,10 @@ anchor_bottom = 0.73
 margin_left = -40.0
 margin_top = -40.0
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
+texture_focused = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -123,10 +126,10 @@ anchor_bottom = 0.94
 margin_left = -40.0
 margin_top = -40.0
 texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 2 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
 texture_disabled = ExtResource( 2 )
-texture_focused = ExtResource( 2 )
+texture_focused = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -154,6 +157,11 @@ __meta__ = {
 position = Vector2( 447.5, 297.5 )
 scale = Vector2( 4.66, 4.66 )
 texture = ExtResource( 3 )
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+bus = "Music"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_InstructionsButton_pressed"]

@@ -15,6 +15,7 @@
 [ext_resource path="res://Sprites/Player/DieBack.png" type="Texture" id=13]
 [ext_resource path="res://Animations/Player/BackFall.tres" type="Animation" id=14]
 [ext_resource path="res://Animations/Player/Crouch.tres" type="Animation" id=15]
+[ext_resource path="res://Audio/StartShot.wav" type="AudioStream" id=16]
 [ext_resource path="res://Animations/Player/FrontFall.tres" type="Animation" id=17]
 [ext_resource path="res://Animations/Player/None.tres" type="Animation" id=18]
 [ext_resource path="res://Sprites/Player/Lose.png" type="Texture" id=19]
@@ -23,8 +24,7 @@
 [ext_resource path="res://Audio/RollerFall.wav" type="AudioStream" id=22]
 [ext_resource path="res://Audio/RollerBreaking.wav" type="AudioStream" id=23]
 [ext_resource path="res://Audio/RollerRolling.wav" type="AudioStream" id=24]
-[ext_resource path="res://Audio/StartBip.wav" type="AudioStream" id=25]
-[ext_resource path="res://Audio/StartShot.wav" type="AudioStream" id=26]
+[ext_resource path="res://Audio/StartBip.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/Pushback.wav" type="AudioStream" id=27]
 [ext_resource path="res://Audio/HitObstacle.wav" type="AudioStream" id=28]
 
@@ -157,15 +157,15 @@ tracks/4/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 25 )
+"stream": ExtResource( 26 )
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 25 )
+"stream": ExtResource( 26 )
 }, {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 25 )
+"stream": ExtResource( 26 )
 } ],
 "times": PoolRealArray( 0, 1, 2 )
 }
@@ -279,9 +279,8 @@ slowdownForce = 50.0
 
 [node name="PlayerSpritePrimary" type="Sprite" parent="."]
 visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 9 )
 hframes = 5
-frame = 1
 
 [node name="PlayerSpriteSecondary" type="Sprite" parent="."]
 texture = ExtResource( 13 )
@@ -398,13 +397,13 @@ volume_db = 15.0
 bus = "FX"
 
 [node name="StartBip" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 25 )
-volume_db = 15.0
+stream = ExtResource( 26 )
+volume_db = 24.0
 bus = "FX"
 
 [node name="StartShot" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 26 )
-volume_db = 15.0
+stream = ExtResource( 16 )
+volume_db = 24.0
 bus = "FX"
 
 [node name="Pushback" type="AudioStreamPlayer2D" parent="."]

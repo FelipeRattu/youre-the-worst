@@ -6,8 +6,8 @@
 [ext_resource path="res://Fonts/8bitOperatorPlus8-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Audio/CrowdDefault.wav" type="AudioStream" id=5]
 [ext_resource path="res://Audio/CrowdCheer.wav" type="AudioStream" id=6]
+[ext_resource path="res://Audio/PushbackBarFull.wav" type="AudioStream" id=7]
 [ext_resource path="res://Audio/CrowdBoo.wav" type="AudioStream" id=8]
-[ext_resource path="res://Audio/PushbackFull.wav" type="AudioStream" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 72
@@ -518,7 +518,7 @@ value = 1.0
 rounded = true
 percent_visible = false
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="RichTextLabel" type="RichTextLabel" parent="UI"]
@@ -534,7 +534,7 @@ custom_fonts/normal_font = SubResource( 4 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "Pushback Charger"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Speed" type="RichTextLabel" parent="UI"]
@@ -556,7 +556,7 @@ custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "PLAYER:"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="PlayerSpeed" type="RichTextLabel" parent="UI"]
@@ -570,7 +570,7 @@ custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "0"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="OponentLabel" type="RichTextLabel" parent="UI"]
@@ -582,7 +582,7 @@ custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "OPONENT:"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="OponentSpeed" type="RichTextLabel" parent="UI"]
@@ -596,7 +596,7 @@ custom_fonts/normal_font = SubResource( 8 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "0"
 __meta__ = {
-"_edit_use_anchors_": true
+"_edit_use_anchors_": false
 }
 
 [node name="Crowd" type="AudioStreamPlayer" parent="."]
@@ -617,8 +617,8 @@ stream = ExtResource( 8 )
 bus = "FX"
 
 [node name="PushbackFull" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = 5.0
+stream = ExtResource( 7 )
+volume_db = 15.0
 bus = "FX"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

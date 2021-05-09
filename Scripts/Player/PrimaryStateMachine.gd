@@ -34,6 +34,8 @@ func _state_logic(delta):
 			parent.run()
 		states.Dead:
 			parent.reduce_speed_while_dead()
+		states.Finish:
+			parent.run()
 
 func _get_transition(delta):
 	match state:
@@ -75,7 +77,7 @@ func _get_transition(delta):
 			elif GameManager.state == "Over" and !parent.isDead:
 				return states.Finish
 			elif parent.isOnGround and parent.motion.x < parent.maxSpeed:
-				return states.Run 
+				return states.Run
 			elif parent.isOnGround and parent.motion.x >= parent.maxSpeed:
 				return states.Slide
 
@@ -110,6 +112,7 @@ func _enter_state(new_state, old_state):
 			parent.died()
 		states.Finish:
 			parent.get_node("Roll").stop()
+			parent.toggle_collisions(false)
 			match GameManager.causeOfGameOver:
 				"Win": primaryAnimationPlayer.play("Win")
 				"Lose": primaryAnimationPlayer.play("Lose")

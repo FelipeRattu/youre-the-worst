@@ -3,6 +3,8 @@ extends CanvasLayer
 
 export (PackedScene) var instructions
 
+#func _ready():
+#	$BackgroundMusic.play()
 
 func _on_PlayButton_pressed():
 	GameManager.next_level()
