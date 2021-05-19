@@ -42,13 +42,13 @@ position = Vector2( 5944, 0 )
 [node name="Obstacles" type="Node2D" parent="."]
 
 [node name="UpObstacle" parent="Obstacles" instance=ExtResource( 5 )]
-position = Vector2( 864, 0 )
+position = Vector2( 1008, 0 )
 
 [node name="UpObstacle2" parent="Obstacles" instance=ExtResource( 5 )]
-position = Vector2( 1568, 0 )
+position = Vector2( 1612, 0 )
 
 [node name="UpObstacle3" parent="Obstacles" instance=ExtResource( 5 )]
-position = Vector2( 2080, 0 )
+position = Vector2( 2100, 0 )
 
 [node name="UpObstacle4" parent="Obstacles" instance=ExtResource( 5 )]
 position = Vector2( 3032, 0 )
@@ -73,12 +73,6 @@ position = Vector2( 784, 64 )
 
 [node name="OponentObstacle3" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 784, -40 )
-
-[node name="Obstacle4" parent="Obstacles" instance=ExtResource( 4 )]
-position = Vector2( 1168, 64 )
-
-[node name="OponentObstacle4" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 1168, -40 )
 
 [node name="Obstacle5" parent="Obstacles" instance=ExtResource( 4 )]
 position = Vector2( 1488, 64 )
@@ -133,12 +127,6 @@ position = Vector2( 4744, 64 )
 
 [node name="OponentObstacle13" parent="Obstacles" instance=ExtResource( 3 )]
 position = Vector2( 4744, -40 )
-
-[node name="Obstacle2" parent="Obstacles" instance=ExtResource( 4 )]
-position = Vector2( 192, 64 )
-
-[node name="OponentObstacle2" parent="Obstacles" instance=ExtResource( 3 )]
-position = Vector2( 192, -40 )
 
 [node name="CrowdGroup" type="Node2D" parent="."]
 

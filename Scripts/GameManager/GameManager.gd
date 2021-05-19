@@ -3,6 +3,7 @@ extends Node
 var menuScene = "res://Scenes/GameTriggers/Menu.tscn"
 
 var levels = [
+	"res://Scenes/Levels/Level0.tscn",
 	"res://Scenes/Levels/Level1.tscn",
 	"res://Scenes/Levels/Level2.tscn",
 	"res://Scenes/Levels/Level3.tscn",
@@ -104,3 +105,6 @@ func _on_NextLevel_pressed():
 func _on_ProgressBar_value_changed(value):
 	if value == 0:
 		$PushbackFull.play()
+
+func press_key(key : String):
+	Input.action_press(key)

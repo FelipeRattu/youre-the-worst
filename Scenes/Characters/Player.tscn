@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/PrimaryStateMachine.gd" type="Script" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Audio/RollerFall.wav" type="AudioStream" id=22]
 [ext_resource path="res://Audio/RollerBreaking.wav" type="AudioStream" id=23]
 [ext_resource path="res://Audio/RollerRolling.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sprites/Player/DieFront.png" type="Texture" id=25]
 [ext_resource path="res://Audio/StartBip.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/Pushback.wav" type="AudioStream" id=27]
 [ext_resource path="res://Audio/HitObstacle.wav" type="AudioStream" id=28]
@@ -267,7 +268,7 @@ extents = Vector2( 18, 20 )
 ]]
 z_index = 4
 z_as_relative = false
-collision_mask = 4
+collision_mask = 132
 script = ExtResource( 1 )
 weightUp = 600.0
 weightDown = 1500.0
@@ -278,12 +279,12 @@ pushbackForce = Vector2( 50, 150 )
 slowdownForce = 50.0
 
 [node name="PlayerSpritePrimary" type="Sprite" parent="."]
-visible = false
-texture = ExtResource( 9 )
+texture = ExtResource( 13 )
 hframes = 5
 
 [node name="PlayerSpriteSecondary" type="Sprite" parent="."]
-texture = ExtResource( 13 )
+visible = false
+texture = ExtResource( 25 )
 hframes = 5
 
 [node name="PlayerBox" type="CollisionShape2D" parent="."]

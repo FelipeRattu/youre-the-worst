@@ -9,7 +9,7 @@
 [ext_resource path="res://Animations/Oponents/Girl/GirlJump.tres" type="Animation" id=7]
 [ext_resource path="res://Animations/Oponents/Girl/GirlFall.tres" type="Animation" id=8]
 [ext_resource path="res://Animations/Oponents/Girl/GirlLose.tres" type="Animation" id=9]
-[ext_resource path="res://Sprites/Oponents/Girl/GirlSteer.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Oponents/Girl/GirlFall.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Oponent/Girl/GirlSecondaryStateMachine.gd" type="Script" id=11]
 [ext_resource path="res://Animations/Oponents/Girl/GirlNone.tres" type="Animation" id=12]
 [ext_resource path="res://Animations/Oponents/Girl/GirlCrouch.tres" type="Animation" id=13]
@@ -45,7 +45,6 @@ jumpForce = 420.0
 
 [node name="PrimaryGirlSprite" type="Sprite" parent="."]
 texture = ExtResource( 10 )
-hframes = 6
 
 [node name="GirlBox" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 0 )
@@ -108,6 +107,7 @@ bus = "FX"
 [node name="Roll" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 bus = "FX"
+
 [connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
 [connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
 [connection signal="area_entered" from="ObstacleUp" to="." method="_on_ObstacleUp_area_entered"]

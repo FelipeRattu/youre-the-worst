@@ -14,6 +14,9 @@ func _ready():
 	
 	GameManager.playerSpeed = parent.maxSpeed
 	
+	if GameManager.levelIndex == 0:
+		parent.slowdownForce = 1
+	
 
 func _state_logic(delta):
 	

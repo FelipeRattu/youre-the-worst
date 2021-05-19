@@ -8,7 +8,7 @@
 extents = Vector2( 500, 10 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 500, 10 )
+extents = Vector2( 499, 10 )
 
 [node name="Track" type="Node2D"]
 z_as_relative = false
@@ -32,6 +32,7 @@ collision_layer = 4096
 collision_mask = 3072
 
 [node name="OponentTrackBox" type="CollisionShape2D" parent="OponentTrackBox"]
+position = Vector2( 0, -1 )
 shape = SubResource( 1 )
 
 [node name="TrackBox" type="StaticBody2D" parent="." groups=[
