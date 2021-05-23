@@ -1,15 +1,16 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Fonts/8bitOperatorPlus8-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Placeholders/PlaceholderSprite.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Placeholders/Roller.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Player/Win.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GameTriggers/Menu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/GameTriggers/InstructionsMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Placeholders/PlaceholderSpritePressed.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Placeholders/PlaceholderSpriteHover.png" type="Texture" id=7]
 [ext_resource path="res://Audio/You're the worst Menu Song.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sprites/Placeholders/Title Text.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=5]
 size = 200
 font_data = ExtResource( 1 )
 
@@ -28,6 +29,87 @@ size = 25
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 50, 0, 50, 50 )
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"loop": true,
+"name": "Menu",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=9]
+resource_name = "Text"
+length = 5.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Title Text:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 2.06374, 2.00074 ), Vector2( 1.871, 1.82 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Title Text:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1, 2.3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 5.0, 0.0, -5.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Title Text:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 355.818, 289.189 ), Vector2( 331.813, 305.649 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PlayButton:rect_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("PlayButton:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 736, 334 ), Vector2( 709, 334 ), Vector2( 736, 334 ), Vector2( 709, 334 ), Vector2( 736, 334 ), Vector2( 709, 334 ), Vector2( 736, 334 ), Vector2( 709, 334 ), Vector2( 736, 334 ), Vector2( 709, 334 ) ]
+}
 
 [node name="Menu" type="CanvasLayer"]
 script = ExtResource( 4 )
@@ -48,14 +130,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Title Text" type="Sprite" parent="."]
+position = Vector2( 353.117, 291.041 )
+rotation = -0.017677
+scale = Vector2( 2.04205, 1.9804 )
+texture = ExtResource( 9 )
+
 [node name="Title" type="RichTextLabel" parent="."]
+visible = false
 anchor_top = 0.5
 anchor_bottom = 0.5
 margin_top = -292.0
 margin_right = 656.0
 margin_bottom = 292.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 1 )
+custom_fonts/normal_font = SubResource( 5 )
 text = "YOU ARE THE WORST"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -89,8 +178,11 @@ anchor_left = 0.757813
 anchor_top = 0.623333
 anchor_right = 0.945313
 anchor_bottom = 0.73
-margin_left = -40.0
+margin_left = -56.4076
 margin_top = -40.0
+margin_right = -16.4076
+margin_bottom = -3.05176e-05
+rect_scale = Vector2( 1.12154, 1.12154 )
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 6 )
 texture_hover = ExtResource( 7 )
@@ -106,10 +198,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -92.0
-margin_top = -31.3636
-margin_right = 92.0
-margin_bottom = 24.6364
+margin_left = -84.475
+margin_top = -29.6145
+margin_right = 99.525
+margin_bottom = 26.3855
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 3 )
 custom_colors/default_color = Color( 0, 0, 0, 1 )
@@ -153,15 +245,21 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Roller" type="Sprite" parent="."]
-position = Vector2( 447.5, 297.5 )
+[node name="Roller" type="AnimatedSprite" parent="."]
+position = Vector2( 447.5, 295.718 )
 scale = Vector2( 4.66, 4.66 )
-texture = ExtResource( 3 )
+frames = SubResource( 8 )
+animation = "Menu"
+frame = 1
+playing = true
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 autoplay = true
 bus = "Music"
+
+[node name="Animations" type="AnimationPlayer" parent="."]
+anims/Text = SubResource( 9 )
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_InstructionsButton_pressed"]
