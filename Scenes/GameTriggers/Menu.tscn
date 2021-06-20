@@ -10,7 +10,7 @@
 [ext_resource path="res://Audio/You're the worst Menu Song.wav" type="AudioStream" id=8]
 [ext_resource path="res://Sprites/Placeholders/Title Text.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=1]
 size = 200
 font_data = ExtResource( 1 )
 
@@ -30,23 +30,23 @@ outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
 
-[sub_resource type="AtlasTexture" id=6]
+[sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 50, 50 )
 
-[sub_resource type="AtlasTexture" id=7]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 50, 0, 50, 50 )
 
-[sub_resource type="SpriteFrames" id=8]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ SubResource( 6 ), SubResource( 7 ) ],
+"frames": [ SubResource( 5 ), SubResource( 6 ) ],
 "loop": true,
 "name": "Menu",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 resource_name = "Text"
 length = 5.0
 loop = true
@@ -144,7 +144,7 @@ margin_top = -292.0
 margin_right = 656.0
 margin_bottom = 292.0
 mouse_filter = 2
-custom_fonts/normal_font = SubResource( 5 )
+custom_fonts/normal_font = SubResource( 1 )
 text = "YOU ARE THE WORST"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -248,7 +248,7 @@ __meta__ = {
 [node name="Roller" type="AnimatedSprite" parent="."]
 position = Vector2( 447.5, 295.718 )
 scale = Vector2( 4.66, 4.66 )
-frames = SubResource( 8 )
+frames = SubResource( 7 )
 animation = "Menu"
 frame = 1
 playing = true
@@ -259,7 +259,7 @@ autoplay = true
 bus = "Music"
 
 [node name="Animations" type="AnimationPlayer" parent="."]
-anims/Text = SubResource( 9 )
+anims/Text = SubResource( 8 )
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="InstructionsButton" to="." method="_on_InstructionsButton_pressed"]

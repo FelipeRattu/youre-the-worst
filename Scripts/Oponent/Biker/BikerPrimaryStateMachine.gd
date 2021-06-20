@@ -13,6 +13,8 @@ func _ready():
 
 func _state_logic(delta):
 	
+	GameManager.oponentPosition = parent.send_x_position()
+	
 	parent.apply_gravity(delta)
 	
 	parent.apply_motion()

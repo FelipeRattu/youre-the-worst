@@ -18,7 +18,7 @@ func _get_transition(delta):
 		states.None:
 			if parent.directionX == -1 and !parent.isOnGround and !parent.isDead and parent.canPushBack:
 				return states.Pushback
-			elif parent.directionX == -1 and parent.isOnGround and !parent.isDead and parent.canBreak and parent.hasIdled:
+			elif parent.directionX == -1 and parent.isOnGround and !parent.isDead and parent.canSlowdown and parent.hasIdled:
 				return states.Slowdown
 			elif parent.directionY == 1 and parent.canCrouch and !parent.isDead:
 				return states.Crouch
@@ -41,7 +41,7 @@ func _get_transition(delta):
 				return states.None
 			elif parent.directionX == -1 and !parent.isOnGround and !parent.isDead and parent.canPushBack:
 				return states.Pushback
-			elif parent.directionX == -1 and parent.isOnGround and !parent.isDead and parent.canBreak:
+			elif parent.directionX == -1 and parent.isOnGround and !parent.isDead and parent.canSlowdown:
 				return states.Slowdown
 
 func _enter_state(new_state, old_state):
@@ -69,9 +69,10 @@ func _enter_state(new_state, old_state):
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.Slowdown:
+			parent.start_slowdown_timer()
 			secondaryAnimationPlayer.stop()
 		states.Pushback:
-			parent.start_pushback_timer()
+			parent.start_slowdown_timer()
 
 func _on_animation_ended():
 	animationEnded = true

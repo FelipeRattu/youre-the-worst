@@ -12,14 +12,22 @@ var levels = [
 var levelIndex = -1
 var nextLevel
 
-var oponentSpeed
-var playerSpeed
+var oponentPosition = 0
+var playerPosition = 0
 
 var state : String
 var causeOfGameOver : String
 var isPlayerDead : bool = false
 
-var pushbackCharge = 1
+#var pushbackCharge = 1
+
+func calculate_distance():
+	var distance = int(oponentPosition - playerPosition)
+	
+#	if distance < 0:
+#		distance *= -1
+		
+	return distance
 
 func restart_level():
 	stop_all_audios()
@@ -87,12 +95,12 @@ func stop_all_audios():
 	$CrowdCheer.stop()
 	$Crowd.stop()
 
-func update_pushback_bar():
-	$UI/ProgressBar.value = pushbackCharge
-
 func update_speeds():
-	$UI/PlayerSpeed.text = str(playerSpeed)
-	$UI/OponentSpeed.text = str(oponentSpeed)
+	if calculate_distance() >= 0:
+		$UI/HSlider.value = calculate_distance()
+	
+	$UI/PlayerSpeed.text = str(playerPosition)
+	$UI/OponentSpeed.text = str(oponentPosition)
 
 func _on_Restart_pressed():
 	restart_level()
@@ -100,11 +108,6 @@ func _on_Restart_pressed():
 
 func _on_NextLevel_pressed():
 	next_level()
-
-
-func _on_ProgressBar_value_changed(value):
-	if value == 0:
-		$PushbackFull.play()
 
 func press_key(key : String):
 	Input.action_press(key)

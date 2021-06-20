@@ -39,7 +39,7 @@ collision_mask = 4096
 script = ExtResource( 2 )
 weightUp = 600.0
 weightDown = 1500.0
-maxSpeed = 200.0
+maxSpeed = 280.0
 acceleration = 5.0
 jumpForce = 420.0
 
@@ -108,6 +108,7 @@ bus = "FX"
 [node name="Roll" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 bus = "FX"
+
 [connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
 [connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
 [connection signal="area_entered" from="ObstacleUp" to="." method="_on_ObstacleUp_area_entered"]

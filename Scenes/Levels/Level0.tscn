@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/GameTriggers/Track.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Characters/Girl.tscn" type="PackedScene" id=2]
@@ -11,27 +11,29 @@
 [ext_resource path="res://Scenes/GameTriggers/FinishLine.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Fonts/8bitOperatorPlus8-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://Scripts/GameTriggers/PopupsTutorial.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/GameTriggers/PlayerFloor.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/GameTriggers/OponentFloor.tscn" type="PackedScene" id=13]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 10 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 25, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 25, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 25, 10 )
+extents = Vector2( 15, 50 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 25, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 25, 10 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 15, 50 )
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 25, 10 )
-
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=6]
 size = 72
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=7]
 size = 72
 font_data = ExtResource( 10 )
 
@@ -63,8 +65,13 @@ position = Vector2( 1984, 0 )
 [node name="Track4" parent="Tracks" instance=ExtResource( 1 )]
 position = Vector2( 2976, 0 )
 
+[node name="Track5" parent="Tracks" instance=ExtResource( 1 )]
+position = Vector2( 3973, 0 )
+
 [node name="FakePlayer" parent="." instance=ExtResource( 7 )]
 position = Vector2( -393, 32 )
+z_index = 3
+z_as_relative = false
 maxSpeed = 251.0
 
 [node name="Girl" parent="." instance=ExtResource( 2 )]
@@ -98,7 +105,8 @@ position = Vector2( 1488, 64 )
 position = Vector2( 1488, -40 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2260, -4.757 )
+position = Vector2( 2926, -4.757 )
+z_index = 0
 
 [node name="Triggers" type="Node2D" parent="."]
 
@@ -113,7 +121,7 @@ __meta__ = {
 
 [node name="JumpTrigger" type="CollisionShape2D" parent="Triggers/JumpTrigger"]
 modulate = Color( 0.921569, 0, 1, 1 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="CrouchTrigger" type="Area2D" parent="Triggers" groups=[
 "Tutorial",
@@ -126,7 +134,7 @@ __meta__ = {
 
 [node name="CrouchTrigger" type="CollisionShape2D" parent="Triggers/CrouchTrigger"]
 modulate = Color( 0.921569, 0, 1, 1 )
-shape = SubResource( 5 )
+shape = SubResource( 2 )
 
 [node name="JumpTrigger2" type="Area2D" parent="Triggers" groups=[
 "Tutorial",
@@ -139,7 +147,7 @@ __meta__ = {
 
 [node name="JumpTrigger2" type="CollisionShape2D" parent="Triggers/JumpTrigger2"]
 modulate = Color( 0.921569, 0, 1, 1 )
-shape = SubResource( 8 )
+shape = SubResource( 3 )
 
 [node name="PushbackTrigger" type="Area2D" parent="Triggers" groups=[
 "Tutorial",
@@ -152,12 +160,12 @@ __meta__ = {
 
 [node name="PushbackTrigger" type="CollisionShape2D" parent="Triggers/PushbackTrigger"]
 modulate = Color( 0.921569, 0, 1, 1 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="SlowdownTrigger" type="Area2D" parent="Triggers" groups=[
 "Tutorial",
 ]]
-position = Vector2( 1933, 59 )
+position = Vector2( 2432, 59 )
 collision_layer = 128
 __meta__ = {
 "_edit_group_": true
@@ -165,7 +173,7 @@ __meta__ = {
 
 [node name="SlowdownTrigger" type="CollisionShape2D" parent="Triggers/SlowdownTrigger"]
 modulate = Color( 0.921569, 0, 1, 1 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="PopupsTutorial" type="CanvasLayer" parent="."]
 pause_mode = 2
@@ -210,7 +218,7 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 6 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "PRESS UP /W TO JUMP"
 scroll_active = false
@@ -257,7 +265,7 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "HOLD \"DOWN /S\" TO CROUCH"
 scroll_active = false
@@ -304,7 +312,7 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "PRESS LEFT /A WHILE IN THE AIR TO PUSHBACK"
 scroll_active = false
@@ -351,13 +359,18 @@ grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 3 )
+custom_fonts/normal_font = SubResource( 7 )
 custom_colors/default_color = Color( 1, 0, 0, 1 )
 text = "PRESS LEFT /A  TO REDUCE MAX SPEED"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PlayerFloor" parent="." instance=ExtResource( 12 )]
+position = Vector2( 0, -32 )
+
+[node name="OponentFloor" parent="." instance=ExtResource( 13 )]
 
 [connection signal="body_entered" from="Triggers/JumpTrigger" to="." method="_on_JumpTrigger_body_entered"]
 [connection signal="body_entered" from="Triggers/CrouchTrigger" to="." method="_on_CrouchTrigger2_body_entered"]

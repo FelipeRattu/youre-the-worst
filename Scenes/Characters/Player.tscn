@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scripts/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Player/PrimaryStateMachine.gd" type="Script" id=2]
@@ -28,6 +28,8 @@
 [ext_resource path="res://Audio/StartBip.wav" type="AudioStream" id=26]
 [ext_resource path="res://Audio/Pushback.wav" type="AudioStream" id=27]
 [ext_resource path="res://Audio/HitObstacle.wav" type="AudioStream" id=28]
+[ext_resource path="res://Audio/PushbackBarFull.wav" type="AudioStream" id=29]
+[ext_resource path="res://Sprites/Placeholders/PlaceholderSprite.png" type="Texture" id=30]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 14 )
@@ -263,6 +265,16 @@ extents = Vector2( 18, 25 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 18, 20 )
 
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 30 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 1, 0, 0, 1 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 30 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 0.521569, 1, 0, 1 )
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -272,14 +284,15 @@ collision_mask = 132
 script = ExtResource( 1 )
 weightUp = 600.0
 weightDown = 1500.0
-maxSpeed = 400.0
+maxDistance = 600
+maxSpeed = 350.0
 acceleration = 5.0
 jumpForce = 320.0
 pushbackForce = Vector2( 50, 150 )
 slowdownForce = 50.0
 
 [node name="PlayerSpritePrimary" type="Sprite" parent="."]
-texture = ExtResource( 13 )
+texture = ExtResource( 9 )
 hframes = 5
 
 [node name="PlayerSpriteSecondary" type="Sprite" parent="."]
@@ -367,7 +380,24 @@ zoom = Vector2( 0.5, 0.5 )
 limit_top = -1
 limit_bottom = 1
 
-[node name="PushbackTimer" type="Timer" parent="."]
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -25.0
+margin_top = -32.0
+margin_right = 25.0
+margin_bottom = -26.0
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = SubResource( 11 )
+max_value = 5.0
+value = 1.0
+rounded = true
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlowdownTimer" type="Timer" parent="."]
 wait_time = 4.0
 one_shot = true
 autostart = true
@@ -417,10 +447,15 @@ stream = ExtResource( 28 )
 volume_db = 15.0
 bus = "FX"
 
+[node name="PushbackFull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = 15.0
+bus = "FX"
+
 [connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
 [connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_Hurtbox_area_entered"]
 [connection signal="area_entered" from="ObstacleDetectionFront" to="." method="_on_ObstacleDetectionFront_area_entered"]
 [connection signal="area_entered" from="ObstacleDetectionBack" to="." method="_on_ObstacleDetectionBack_area_entered"]
-[connection signal="timeout" from="PushbackTimer" to="." method="_on_PushbackTimer_timeout"]
-[connection signal="timeout" from="BreakTimer" to="." method="_on_BreakTimer_timeout"]
+[connection signal="value_changed" from="ProgressBar" to="." method="_on_ProgressBar_value_changed"]
+[connection signal="timeout" from="SlowdownTimer" to="." method="_on_SlowdownTimer_timeout"]

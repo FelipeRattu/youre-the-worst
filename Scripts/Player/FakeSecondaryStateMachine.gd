@@ -41,6 +41,7 @@ func _enter_state(new_state, old_state):
 			if parent.motion.x > 0:
 				parent.pushback()
 		states.Slowdown:
+			yield(get_tree().create_timer(0.05), "timeout")
 			secondaryAnimationPlayer.play("FakeBreak")
 			if parent.motion.x > 0:
 				parent.slowdown()
@@ -52,8 +53,9 @@ func _enter_state(new_state, old_state):
 func _exit_state(old_state, new_state):
 	match old_state:
 		states.Pushback:
-			GameManager.pushbackCharge = 5
+			parent.start_slowdown_timer()
 		states.Slowdown:
+			parent.start_slowdown_timer()
 			secondaryAnimationPlayer.stop()
 
 func _on_animation_ended():

@@ -17,6 +17,11 @@ var directionY : int
 var velocityX : int
 var velocityY : int
 
+# Distance Related
+var distance : int
+var canCalculateDistance : bool = false
+export var maxDistance : int
+
 # Speed Related
 export var maxSpeed : float
 export var acceleration : float
@@ -32,7 +37,7 @@ var isDead : bool = false
 var hasIdled : bool = false
 var canCrouch : bool = false
 var canPushBack : bool = false
-var canBreak : bool = false
+var canSlowdown : bool = false
 
 # Death Related:
 var deathDirection : String = "Front"
@@ -56,6 +61,9 @@ func input_x_axis():
 
 func input_y_axis():
 	directionY = -int(Input.is_action_just_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
+
+func send_x_position():
+	return int(position.x)
 
 # Called in the animation player
 func finished_idle():
@@ -95,13 +103,15 @@ func pushback():
 
 func slowdown():
 	$Break.play()
-	maxSpeed -= slowdownForce
-	GameManager.playerSpeed = maxSpeed
+	motion.x -= motion.x + slowdownForce
 
 func check_if_is_too_slow():
-	if maxSpeed <= GameManager.oponentSpeed:
+	if canCalculateDistance:
+		distance = GameManager.calculate_distance()
+	
+	if distance >= maxDistance:
 		GameManager.causeOfGameOver = "Slow"
-		isDead = true
+		GameManager.state = "Over"
 	elif GameManager.causeOfGameOver != "Win" and GameManager.causeOfGameOver != "Lose":
 		GameManager.causeOfGameOver = "Death"
 
@@ -114,6 +124,7 @@ func toggle_collisions(toggle : bool):
 func _on_GroundDetectionBox_body_entered(body):
 	if body.is_in_group("Ground"):
 		isOnGround = true
+		canCalculateDistance = true
 		weight = weightUp
 		if isDead:
 			ground_death(deathDirection)
@@ -138,17 +149,19 @@ func _on_ObstacleDetectionBack_area_entered(area):
 	if area.is_in_group("Hitbox"):
 		deathDirection = "Back"
 
+func start_slowdown_timer():
+	canPushBack = false
+	canSlowdown = false
+	$SlowdownTimer.start()
 
-func _on_PushbackTimer_timeout():
+func _on_SlowdownTimer_timeout():
 	canPushBack = true
-
-func start_pushback_timer():
-	$PushbackTimer.start()
+	canSlowdown = true
 
 func send_pushback_timer_vaue_to_manager():
-	var localValue = $PushbackTimer.time_left
-	GameManager.pushbackCharge = localValue
+	var localValue = $SlowdownTimer.time_left
+	$ProgressBar.value = localValue
 
-
-func _on_BreakTimer_timeout():
-	canBreak = true
+func _on_ProgressBar_value_changed(value):
+	if value == 0:
+		$PushbackFull.play()

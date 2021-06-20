@@ -28,8 +28,8 @@ var isOnGround = false
 var hasIdled = false
 var canCrouch = false
 
-func _ready():
-	GameManager.oponentSpeed = maxSpeed
+func send_x_position():
+	return int(position.x)
 
 func apply_motion():
 	motion = move_and_slide(motion)

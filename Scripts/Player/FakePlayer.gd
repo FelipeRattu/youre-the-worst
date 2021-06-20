@@ -34,8 +34,8 @@ var slowdown = false
 
 var tutorialBoxIndex : int = 0
 
-func _ready():
-	GameManager.playerSpeed = maxSpeed
+func send_x_position():
+	return int(position.x)
 
 func apply_motion():
 	motion = move_and_slide(motion)
@@ -115,9 +115,8 @@ func _on_ObstacleFront_area_exited(area):
 func _on_CrouchTime_timeout():
 	canCrouch = false
 
-func _on_PushbackTimer_timeout():
-	var localValue = $PushbackTimer.time_left
-	GameManager.pushbackCharge = localValue
+func _on_SlowdownTimer_timeout():
+	var localValue = $SlowdownTimer.time_left
 
 func on_pushback_animation_finished():
 	pushback = false
@@ -129,5 +128,15 @@ func pushback():
 
 func slowdown():
 	$Break.play()
-	maxSpeed -= slowdownForce
-	GameManager.playerSpeed = maxSpeed
+	motion.x -= motion.x + slowdownForce
+
+func start_slowdown_timer():
+	$SlowdownTimer.start()
+
+func send_pushback_timer_vaue_to_manager():
+	var localValue = $SlowdownTimer.time_left
+	$ProgressBar.value = localValue
+
+func _on_ProgressBar_value_changed(value):
+	if value == 0:
+		$PushbackFull.play()

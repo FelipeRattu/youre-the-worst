@@ -12,13 +12,10 @@ func _ready():
 	add_state("Dead")
 	call_deferred("set_state", states.Idle)
 	
-	GameManager.playerSpeed = parent.maxSpeed
-	
-	if GameManager.levelIndex == 0:
-		parent.slowdownForce = 1
-	
 
 func _state_logic(delta):
+	
+	GameManager.playerPosition = parent.send_x_position()
 	
 	parent.apply_gravity(delta)
 	
@@ -98,13 +95,16 @@ func _enter_state(new_state, old_state):
 			parent.canCrouch = true
 			primaryAnimationPlayer.play("Slide")
 		states.Jump:
+			print("Jump")
 			primaryAnimationPlayer.play("Jump")
 			parent.weight = parent.weightUp
 			parent.jump()
 		states.Fall:
+			print("Fall")
 			primaryAnimationPlayer.play("Fall")
 			parent.weight = parent.weightDown
 		states.Dead:
+			print("DIED")
 			parent.get_node("Roll").stop()
 			if GameManager.causeOfGameOver == "Death":
 				match parent.deathDirection:

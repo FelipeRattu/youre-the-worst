@@ -13,11 +13,15 @@ func _ready():
 
 func _state_logic(delta):
 	
+	GameManager.playerPosition = parent.send_x_position()
+	
 	parent.apply_gravity(delta)
 	
 	parent.apply_motion()
 	
 	parent.calculate_velocity(delta)
+	
+	parent.send_pushback_timer_vaue_to_manager()
 	
 	match state:
 		states.Run:

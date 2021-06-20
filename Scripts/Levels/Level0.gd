@@ -12,7 +12,7 @@ export var slowdownCollision : NodePath
 
 func _ready():
 	GameManager.state = "Start"
-	GameManager.pushbackCharge = 5
+#	GameManager.pushbackCharge = 5
 
 func _on_JumpTrigger_body_entered(body):
 	if body.is_in_group("Player"):

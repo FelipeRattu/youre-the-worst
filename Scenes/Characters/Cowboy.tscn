@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://Sprites/Oponents/Cowboy/CowboySteer.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Oponents/Cowboy/CowboyFall.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Oponent/Cowboy/Cowboy.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Oponent/Cowboy/CowboyPrimaryStateMachine.gd" type="Script" id=3]
 [ext_resource path="res://Animations/Oponents/Cowboy/CowboyIdle.tres" type="Animation" id=4]
@@ -39,13 +39,15 @@ collision_mask = 4096
 script = ExtResource( 2 )
 weightUp = 600.0
 weightDown = 1500.0
-maxSpeed = 250.0
+maxSpeed = 290.0
 acceleration = 5.0
 jumpForce = 420.0
 
 [node name="PrimaryCowboySprite" type="Sprite" parent="."]
+position = Vector2( 0, 5 )
+scale = Vector2( 1, 0.8 )
 texture = ExtResource( 1 )
-hframes = 6
+hframes = 2
 
 [node name="CowboyBox" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 0 )
@@ -108,6 +110,7 @@ bus = "FX"
 [node name="Roll" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 14 )
 bus = "FX"
+
 [connection signal="body_entered" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_entered"]
 [connection signal="body_exited" from="GroundDetectionBox" to="." method="_on_GroundDetectionBox_body_exited"]
 [connection signal="area_entered" from="ObstacleUp" to="." method="_on_ObstacleUp_area_entered"]

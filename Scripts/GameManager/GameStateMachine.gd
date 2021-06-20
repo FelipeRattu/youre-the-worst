@@ -8,9 +8,10 @@ func _ready():
 	call_deferred("set_state", states.Start)
 
 func _state_logic(delta):
-	parent.pause_management()
 	
-	parent.update_pushback_bar()
+	parent.calculate_distance()
+	
+	parent.pause_management()
 	
 	parent.update_speeds()
 
