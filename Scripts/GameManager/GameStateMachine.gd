@@ -20,7 +20,7 @@ func _get_transition(delta):
 		states.Start:
 			if parent.state == "Over":
 				return states.Over
-			elif parent.state == "Pause":
+			elif parent.state == "Pause" and parent.levelIndex > 0:
 				return states.Pause
 		states.Over:
 			if parent.state == "Start":

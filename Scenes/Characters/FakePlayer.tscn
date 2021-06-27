@@ -795,3 +795,4 @@ bus = "FX"
 [connection signal="timeout" from="CrouchTime" to="." method="_on_CrouchTime_timeout"]
 [connection signal="timeout" from="SlowdownTimer" to="." method="_on_SlowdownTimer_timeout"]
 [connection signal="value_changed" from="ProgressBar" to="." method="_on_ProgressBar_value_changed"]
+[connection signal="finished" from="PushbackFull" to="." method="_on_PushbackFull_finished"]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/BikerLoseB.png-f756aa5522f1583d64200c4318093ff6.stex"
+path="res://.import/Popup.png-5877439215041fbf29fe7a04f828cdf3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Oponents/Biker/BikerLoseB.png"
-dest_files=[ "res://.import/BikerLoseB.png-f756aa5522f1583d64200c4318093ff6.stex" ]
+source_file="res://Sprites/Placeholders/Popup.png"
+dest_files=[ "res://.import/Popup.png-5877439215041fbf29fe7a04f828cdf3.stex" ]
 
 [params]
 

@@ -1,10 +1,21 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Fonts/8bitOperatorPlus8-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/Placeholders/PlaceholderSprite.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Placeholders/Trophy.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GameTriggers/Ending.gd" type="Script" id=4]
 [ext_resource path="res://Sprites/Placeholders/GameJamLogo.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Player/RollerEnding1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Player/RollerEnding2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Placeholders/Twitch Profile Picture (2.4) (4x).png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Placeholders/Twitter.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Placeholders/Twitch.png" type="Texture" id=10]
+
+[sub_resource type="AnimatedTexture" id=7]
+frames = 2
+frame_0/texture = ExtResource( 6 )
+frame_1/texture = ExtResource( 7 )
+frame_1/delay_sec = 0.0
 
 [sub_resource type="DynamicFont" id=1]
 size = 200
@@ -12,6 +23,10 @@ font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 40
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=3]
@@ -53,16 +68,35 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="WinParticles" type="CPUParticles2D" parent="."]
+position = Vector2( 500, -146 )
+scale = Vector2( 3, 3 )
+amount = 32
+lifetime = 5.0
+texture = SubResource( 7 )
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 70.16
+gravity = Vector2( 0, 40 )
+angular_velocity = 201.29
+angular_velocity_random = 0.43
+
 [node name="Message" type="RichTextLabel" parent="."]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -488.0
+margin_top = -127.0
 margin_right = 480.0
-margin_bottom = 584.0
+margin_bottom = 457.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 0.196078, 1, 0, 1 )
-text = "CONGRATS"
+custom_colors/default_color = Color( 0.372549, 0.811765, 0.266667, 1 )
+bbcode_enabled = true
+bbcode_text = "
+[wave amp=50 freq=5
+]CONGRATS[/wave]"
+text = "
+CONGRATS"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -72,19 +106,48 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -216.0
-margin_top = -48.0
+margin_left = -269.0
+margin_top = -143.0
+margin_right = -53.0
+margin_bottom = -87.0
 mouse_filter = 2
 custom_fonts/normal_font = SubResource( 2 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-text = "Game By:
-Felipe Rattu"
+text = "Game By:"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Credits2" type="RichTextLabel" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -148.0
+margin_top = -108.0
+margin_right = 68.0
+margin_bottom = 4.0
+mouse_filter = 2
+custom_fonts/normal_font = SubResource( 8 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "
+Felipe 
+Rattu"
+text = "
+Felipe 
+Rattu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Twitch Profile Picture (24) (4x)" type="Sprite" parent="."]
+position = Vector2( 806, 548 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 8 )
+
 [node name="Replay" type="TextureButton" parent="."]
-self_modulate = Color( 0.196078, 1, 0, 1 )
+self_modulate = Color( 0.372549, 0.811765, 0.266667, 1 )
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -181,4 +244,43 @@ NOT THE BEST
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="TwitterButton" type="TextureButton" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 11.0
+margin_top = -61.0
+margin_right = 323.0
+margin_bottom = 195.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 9 )
+texture_focused = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TwitchButton" type="TextureButton" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -167.0
+margin_top = -61.0
+margin_right = 145.0
+margin_bottom = 195.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 10 )
+texture_focused = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="pressed" from="Replay" to="." method="_on_Replay_pressed"]
+[connection signal="pressed" from="TwitterButton" to="." method="_on_TwitterButton_pressed"]
+[connection signal="pressed" from="TwitchButton" to="." method="_on_TwitchButton_pressed"]

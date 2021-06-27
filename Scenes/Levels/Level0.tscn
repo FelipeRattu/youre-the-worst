@@ -1,7 +1,6 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://Scenes/GameTriggers/Track.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Characters/Girl.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameTriggers/TrackTutorial.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Obstacles/ObstacleUpside.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Obstacles/OponentObstacle.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Obstacles/OponentObstacleUpsideDown.tscn" type="PackedScene" id=5]
@@ -13,6 +12,12 @@
 [ext_resource path="res://Scripts/GameTriggers/PopupsTutorial.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/GameTriggers/PlayerFloor.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/GameTriggers/OponentFloor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/Placeholders/UpArrow.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Placeholders/Popup.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Placeholders/DownArrow.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Placeholders/LeftArrow.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Placeholders/PlaceholderSprite.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/Characters/Dummy.tscn" type="PackedScene" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 25, 10 )
@@ -30,23 +35,43 @@ extents = Vector2( 15, 50 )
 extents = Vector2( 25, 10 )
 
 [sub_resource type="DynamicFont" id=6]
+size = 100
+font_data = ExtResource( 10 )
+
+[sub_resource type="StreamTexture" id=7]
+flags = 4
+load_path = "res://.import/PlaceholderSprite.png-266c7523097c6e9b5aa8ecddfa6d328d.stex"
+
+[sub_resource type="DynamicFont" id=9]
 size = 72
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=10]
 size = 72
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 20
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 32
 font_data = ExtResource( 10 )
 
 [node name="Level0" type="Node2D"]
 script = ExtResource( 8 )
+wannaPopup = NodePath("PopupsTutorial/WannaTutorial")
+barPopup = NodePath("PopupsTutorial/BarTutorial")
 jumpPopup = NodePath("PopupsTutorial/JumpTutorial")
 crouchPopup = NodePath("PopupsTutorial/CrouchTutorial")
 pushbackPopup = NodePath("PopupsTutorial/PushbackTutorial")
 slowdownPopup = NodePath("PopupsTutorial/SlowdownTutorial")
+distancePopup = NodePath("PopupsTutorial/DistanceTutorial")
 jumpCollision = NodePath("Triggers/JumpTrigger/JumpTrigger")
 crouchCollision = NodePath("Triggers/CrouchTrigger/CrouchTrigger")
 pushbackCollision = NodePath("Triggers/PushbackTrigger/PushbackTrigger")
 slowdownCollision = NodePath("Triggers/SlowdownTrigger/SlowdownTrigger")
+distanceCollision = NodePath("Triggers/DistanceTrigger/DistanceCollision")
 
 [node name="Tracks" type="Node2D" parent="."]
 __meta__ = {
@@ -54,18 +79,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Track" parent="Tracks" instance=ExtResource( 1 )]
+[node name="TrackTutorial" parent="Tracks" instance=ExtResource( 1 )]
 
-[node name="Track2" parent="Tracks" instance=ExtResource( 1 )]
+[node name="TrackTutorial2" parent="Tracks" instance=ExtResource( 1 )]
 position = Vector2( 997, 0 )
 
-[node name="Track3" parent="Tracks" instance=ExtResource( 1 )]
+[node name="TrackTutorial3" parent="Tracks" instance=ExtResource( 1 )]
 position = Vector2( 1984, 0 )
 
-[node name="Track4" parent="Tracks" instance=ExtResource( 1 )]
+[node name="TrackTutorial4" parent="Tracks" instance=ExtResource( 1 )]
 position = Vector2( 2976, 0 )
 
-[node name="Track5" parent="Tracks" instance=ExtResource( 1 )]
+[node name="TrackTutorial5" parent="Tracks" instance=ExtResource( 1 )]
 position = Vector2( 3973, 0 )
 
 [node name="FakePlayer" parent="." instance=ExtResource( 7 )]
@@ -74,9 +99,8 @@ z_index = 3
 z_as_relative = false
 maxSpeed = 251.0
 
-[node name="Girl" parent="." instance=ExtResource( 2 )]
+[node name="Dummy" parent="." instance=ExtResource( 19 )]
 position = Vector2( -393, -72 )
-maxSpeed = 249.0
 
 [node name="Obstacles" type="Node2D" parent="."]
 
@@ -105,7 +129,7 @@ position = Vector2( 1488, 64 )
 position = Vector2( 1488, -40 )
 
 [node name="FinishLine" parent="." instance=ExtResource( 9 )]
-position = Vector2( 2926, -4.757 )
+position = Vector2( 3367, 0.243 )
 z_index = 0
 
 [node name="Triggers" type="Node2D" parent="."]
@@ -175,9 +199,293 @@ __meta__ = {
 modulate = Color( 0.921569, 0, 1, 1 )
 shape = SubResource( 5 )
 
+[node name="DistanceTrigger" type="Area2D" parent="Triggers" groups=[
+"Tutorial",
+]]
+position = Vector2( 2932, 59 )
+collision_layer = 128
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="DistanceCollision" type="CollisionShape2D" parent="Triggers/DistanceTrigger"]
+modulate = Color( 0.921569, 0, 1, 1 )
+shape = SubResource( 5 )
+
 [node name="PopupsTutorial" type="CanvasLayer" parent="."]
 pause_mode = 2
 script = ExtResource( 11 )
+
+[node name="WannaTutorial" type="Popup" parent="PopupsTutorial"]
+pause_mode = 2
+margin_left = 0.25
+margin_right = 1024.25
+margin_bottom = 600.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopupsTutorial/WannaTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -574.0
+margin_top = -340.0
+margin_right = 574.0
+margin_bottom = 340.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="PopupsTutorial/WannaTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+mouse_filter = 2
+texture = ExtResource( 15 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WannaText" type="RichTextLabel" parent="PopupsTutorial/WannaTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -471.0
+margin_top = -266.0
+margin_right = 471.0
+margin_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 6 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "
+   DO YOU WANNA 
+      PLAY THE 
+      [color=#5fcf44]TUTORIAL[/color]?"
+text = "
+   DO YOU WANNA 
+      PLAY THE 
+      TUTORIAL?"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" type="TextureButton" parent="PopupsTutorial/WannaTutorial"]
+pause_mode = 2
+self_modulate = Color( 0.882353, 0.972549, 0.858824, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -362.0
+margin_top = 100.0
+margin_right = -112.0
+margin_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = SubResource( 7 )
+texture_pressed = SubResource( 7 )
+texture_hover = ExtResource( 18 )
+texture_disabled = SubResource( 7 )
+texture_focused = SubResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesText" type="RichTextLabel" parent="PopupsTutorial/WannaTutorial/YesButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -66.0
+margin_top = -23.0
+margin_right = 66.0
+margin_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 9 )
+custom_colors/default_color = Color( 0.133333, 0.12549, 0.203922, 1 )
+text = "YES"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NoButton" type="TextureButton" parent="PopupsTutorial/WannaTutorial"]
+pause_mode = 2
+self_modulate = Color( 1, 0.862745, 0.862745, 1 )
+anchor_left = 0.078125
+anchor_right = 0.078125
+margin_left = 524.0
+margin_top = 400.0
+margin_right = 774.0
+margin_bottom = 500.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 18 )
+texture_hover = ExtResource( 18 )
+texture_disabled = ExtResource( 18 )
+texture_focused = ExtResource( 18 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NoText" type="RichTextLabel" parent="PopupsTutorial/WannaTutorial/NoButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -45.0
+margin_top = -23.0
+margin_right = 45.0
+margin_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 9 )
+custom_colors/default_color = Color( 0.133333, 0.12549, 0.203922, 1 )
+text = "NO"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BarTutorial" type="Popup" parent="PopupsTutorial"]
+pause_mode = 2
+margin_left = 0.25
+margin_right = 1024.25
+margin_bottom = 600.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopupsTutorial/BarTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -574.0
+margin_top = -340.0
+margin_right = 574.0
+margin_bottom = 340.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="PopupsTutorial/BarTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -361.0
+margin_top = 133.0
+margin_right = -239.0
+margin_bottom = 167.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="TextureRect" parent="PopupsTutorial/BarTutorial"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BarText" type="RichTextLabel" parent="PopupsTutorial/BarTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -501.25
+margin_top = -91.0
+margin_right = 149.75
+margin_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "WHEN THIS BAR IS [color=#5fcf44][wave amp=25 freq=10]FULLY GREEN[/wave] [/color] YOU CAN BREAK/PUSHBACK"
+text = "WHEN THIS BAR IS FULLY GREEN  YOU CAN BREAK/PUSHBACK"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BarText2" type="RichTextLabel" parent="PopupsTutorial/BarTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -214.0
+margin_top = 125.0
+margin_right = 92.0
+margin_bottom = 183.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 11 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "
+ [wave amp=25 freq=10]PRESS ENTER TO CONTINUE[/wave]"
+text = "
+ PRESS ENTER TO CONTINUE"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="JumpTutorial" type="Popup" parent="PopupsTutorial"]
 pause_mode = 2
@@ -204,23 +512,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Key" type="TextureRect" parent="PopupsTutorial/JumpTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="JumpText" type="RichTextLabel" parent="PopupsTutorial/JumpTutorial"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -390.0
-margin_top = -33.0
+margin_top = -166.0
 margin_right = 390.0
-margin_bottom = 33.0
+margin_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 6 )
-custom_colors/default_color = Color( 1, 0, 0, 1 )
-text = "PRESS UP /W TO JUMP"
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "           PRESS 
+ 
+
+
+
+         TO[wave amp=25 freq=10
+		
+		] JUMP[/wave] "
+text = "           PRESS 
+ 
+
+
+
+         TO JUMP "
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -251,23 +589,53 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CrouchText" type="RichTextLabel" parent="PopupsTutorial/CrouchTutorial"]
+[node name="Key" type="TextureRect" parent="PopupsTutorial/CrouchTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpText" type="RichTextLabel" parent="PopupsTutorial/CrouchTutorial"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -390.0
-margin_top = -33.0
+margin_top = -166.0
 margin_right = 390.0
-margin_bottom = 73.0
+margin_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 7 )
-custom_colors/default_color = Color( 1, 0, 0, 1 )
-text = "HOLD \"DOWN /S\" TO CROUCH"
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "            HOLD
+ 
+
+
+
+        TO[wave amp=25 freq=10
+		
+		] CROUCH[/wave] "
+text = "            HOLD
+ 
+
+
+
+        TO CROUCH "
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -298,23 +666,55 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PushbackText" type="RichTextLabel" parent="PopupsTutorial/PushbackTutorial"]
+[node name="Key" type="TextureRect" parent="PopupsTutorial/PushbackTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpText" type="RichTextLabel" parent="PopupsTutorial/PushbackTutorial"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -390.0
-margin_top = -33.0
+margin_top = -166.0
 margin_right = 390.0
-margin_bottom = 127.0
+margin_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 7 )
-custom_colors/default_color = Color( 1, 0, 0, 1 )
-text = "PRESS LEFT /A WHILE IN THE AIR TO PUSHBACK"
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "           PRESS
+ 
+
+
+
+      WHILE IN THE 
+    AIR TO[wave amp=25 freq=10
+		
+		] PUSHBACK[/wave] "
+text = "           PRESS
+ 
+
+
+
+      WHILE IN THE 
+    AIR TO PUSHBACK "
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -345,23 +745,164 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="SlowdownText" type="RichTextLabel" parent="PopupsTutorial/SlowdownTutorial"]
+[node name="Key" type="TextureRect" parent="PopupsTutorial/SlowdownTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 17 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpText" type="RichTextLabel" parent="PopupsTutorial/SlowdownTutorial"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -390.0
-margin_top = -33.0
+margin_top = -166.0
 margin_right = 390.0
-margin_bottom = 80.0
+margin_bottom = 198.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 size_flags_horizontal = 2
 size_flags_vertical = 2
-custom_fonts/normal_font = SubResource( 7 )
-custom_colors/default_color = Color( 1, 0, 0, 1 )
-text = "PRESS LEFT /A  TO REDUCE MAX SPEED"
+custom_fonts/normal_font = SubResource( 10 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "           PRESS
+ 
+
+
+
+   WHILE GROUNDED
+        TO[wave amp=25 freq=10
+		
+		] BREAK[/wave] "
+text = "           PRESS
+ 
+
+
+
+   WHILE GROUNDED
+        TO BREAK "
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DistanceTutorial" type="Popup" parent="PopupsTutorial"]
+pause_mode = 2
+margin_left = 0.25
+margin_right = 1024.25
+margin_bottom = 600.0
+popup_exclusive = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="PopupsTutorial/DistanceTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -574.25
+margin_top = -340.0
+margin_right = 573.75
+margin_bottom = 340.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="PopupsTutorial/DistanceTutorial"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -170.0
+margin_top = -255.0
+margin_right = 168.0
+margin_bottom = -191.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0.466667 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Key" type="TextureRect" parent="PopupsTutorial/DistanceTutorial"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -114.0
+margin_right = 100.0
+margin_bottom = 86.0
+texture = ExtResource( 14 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DistanceText" type="RichTextLabel" parent="PopupsTutorial/DistanceTutorial"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -334.0
+margin_bottom = 241.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 12 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "  
+  IF THE OPONENT 
+    ICON HIT THE 
+  [color=#ed5151][wave amp=25 freq=10]RED END[/wave][/color] OF THE 
+    BAR YOU LOSE"
+text = "  
+  IF THE OPONENT 
+    ICON HIT THE 
+  RED END OF THE 
+    BAR YOU LOSE"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DistanceText2" type="RichTextLabel" parent="PopupsTutorial/DistanceTutorial"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -326.0
+margin_top = 145.0
+margin_right = -20.0
+margin_bottom = 203.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/normal_font = SubResource( 11 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+bbcode_enabled = true
+bbcode_text = "
+ [wave amp=25 freq=10]PRESS ENTER TO CONTINUE[/wave]"
+text = "
+ PRESS ENTER TO CONTINUE"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false
@@ -372,12 +913,18 @@ position = Vector2( 0, -32 )
 
 [node name="OponentFloor" parent="." instance=ExtResource( 13 )]
 
+[connection signal="pushbackBarFull" from="FakePlayer" to="." method="_on_FakePlayer_pushbackBarFull"]
 [connection signal="body_entered" from="Triggers/JumpTrigger" to="." method="_on_JumpTrigger_body_entered"]
 [connection signal="body_entered" from="Triggers/CrouchTrigger" to="." method="_on_CrouchTrigger2_body_entered"]
 [connection signal="body_entered" from="Triggers/JumpTrigger2" to="." method="_on_JumpTrigger_body_entered"]
 [connection signal="body_entered" from="Triggers/PushbackTrigger" to="." method="_on_PushbackTrigger_body_entered"]
 [connection signal="body_entered" from="Triggers/SlowdownTrigger" to="." method="_on_SlowdownTrigger_body_entered"]
+[connection signal="body_entered" from="Triggers/DistanceTrigger" to="." method="_on_DistanceTrigger_body_entered"]
+[connection signal="pressed" from="PopupsTutorial/WannaTutorial/YesButton" to="PopupsTutorial" method="_on_YesButton_pressed"]
+[connection signal="pressed" from="PopupsTutorial/WannaTutorial/NoButton" to="PopupsTutorial" method="_on_NoButton_pressed"]
+[connection signal="about_to_show" from="PopupsTutorial/BarTutorial" to="PopupsTutorial" method="_on_BarTutorial_about_to_show"]
 [connection signal="about_to_show" from="PopupsTutorial/JumpTutorial" to="PopupsTutorial" method="_on_JumpTutorial_about_to_show"]
 [connection signal="about_to_show" from="PopupsTutorial/CrouchTutorial" to="PopupsTutorial" method="_on_CrouchTutorial_about_to_show"]
 [connection signal="about_to_show" from="PopupsTutorial/PushbackTutorial" to="PopupsTutorial" method="_on_PushbackTutorial_about_to_show"]
 [connection signal="about_to_show" from="PopupsTutorial/SlowdownTutorial" to="PopupsTutorial" method="_on_SlowdownTutorial_about_to_show"]
+[connection signal="about_to_show" from="PopupsTutorial/DistanceTutorial" to="PopupsTutorial" method="_on_DistanceTutorial_about_to_show"]

@@ -1,24 +1,376 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Animations/Oponents/Biker/BikerJump.tres" type="Animation" id=1]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerLose.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Oponent/Biker/Biker.gd" type="Script" id=2]
 [ext_resource path="res://Scripts/Oponent/Biker/BikerPrimaryStateMachine.gd" type="Script" id=3]
-[ext_resource path="res://Animations/Oponents/Biker/BikerWin.tres" type="Animation" id=4]
-[ext_resource path="res://Animations/Oponents/Biker/BikerLose.tres" type="Animation" id=5]
-[ext_resource path="res://Animations/Oponents/Biker/BikerRun.tres" type="Animation" id=6]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerJump.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerSlide.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerFall.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Oponents/Biker/BikerSteer.png" type="Texture" id=7]
-[ext_resource path="res://Animations/Oponents/Biker/BikerSlide.tres" type="Animation" id=8]
-[ext_resource path="res://Animations/Oponents/Biker/BikerIdle.tres" type="Animation" id=9]
-[ext_resource path="res://Animations/Oponents/Biker/BikerFall.tres" type="Animation" id=10]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerWin.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/Oponent/Biker/BikerSecondaryStateMachine.gd" type="Script" id=11]
-[ext_resource path="res://Animations/Oponents/Biker/BikerNone.tres" type="Animation" id=12]
-[ext_resource path="res://Animations/Oponents/Biker/BikerCrouch.tres" type="Animation" id=13]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerIdle2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Oponents/Biker/BikerIdle1.png" type="Texture" id=13]
 [ext_resource path="res://Audio/RollerRolling.wav" type="AudioStream" id=14]
 [ext_resource path="res://Audio/RollerJump.wav" type="AudioStream" id=15]
 [ext_resource path="res://Audio/RollerFall.wav" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 10, 15 )
+
+[sub_resource type="Animation" id=5]
+resource_name = "DummyFall"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "DummyIdle"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "finished_idle"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 13 ), ExtResource( 12 ), ExtResource( 12 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("PrimaryBikerSprite:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3, 3.1, 3.2, 3.3, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "DummyJump"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "DummyLose"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "DummyRun"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 7 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 6 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "DummySlide"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 4 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "DummyWin"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryBikerSprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryBikerSprite:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 2 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("PrimaryBikerSprite:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "DummyCrouch"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryDummySprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 0.8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryDummySprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 5 ) ]
+}
+
+[sub_resource type="Animation" id=13]
+resource_name = "DummyNone"
+tracks/0/type = "value"
+tracks/0/path = NodePath("PrimaryDummySprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("PrimaryDummySprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 10, 5 )
@@ -44,8 +396,8 @@ acceleration = 5.0
 jumpForce = 420.0
 
 [node name="PrimaryBikerSprite" type="Sprite" parent="."]
-texture = ExtResource( 7 )
-hframes = 6
+texture = ExtResource( 10 )
+hframes = 2
 
 [node name="BikerBox" type="CollisionShape2D" parent="."]
 position = Vector2( 2, 0 )
@@ -55,20 +407,20 @@ shape = SubResource( 1 )
 script = ExtResource( 3 )
 
 [node name="PrimaryAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/BikerFall = ExtResource( 10 )
-anims/BikerIdle = ExtResource( 9 )
-anims/BikerJump = ExtResource( 1 )
-anims/BikerLose = ExtResource( 5 )
-anims/BikerRun = ExtResource( 6 )
-anims/BikerSlide = ExtResource( 8 )
-anims/BikerWin = ExtResource( 4 )
+anims/BikerFall = SubResource( 5 )
+anims/BikerIdle = SubResource( 6 )
+anims/BikerJump = SubResource( 7 )
+anims/BikerLose = SubResource( 8 )
+anims/BikerRun = SubResource( 9 )
+anims/BikerSlide = SubResource( 10 )
+anims/BikerWin = SubResource( 11 )
 
 [node name="SecondaryStateMachine" type="Node" parent="."]
 script = ExtResource( 11 )
 
 [node name="SecondaryAnimationPlayer" type="AnimationPlayer" parent="."]
-anims/BikerCrouch = ExtResource( 13 )
-anims/BikerNone = ExtResource( 12 )
+anims/BikerCrouch = SubResource( 12 )
+anims/BikerNone = SubResource( 13 )
 
 [node name="GroundDetectionBox" type="Area2D" parent="." groups=[
 "Foot",

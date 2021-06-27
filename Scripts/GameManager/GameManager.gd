@@ -29,6 +29,9 @@ func calculate_distance():
 		
 	return distance
 
+func change_icon(icon):
+	var list = $UI/HSlider.set("custom_icons/grabber_disabled", icon)
+
 func restart_level():
 	stop_all_audios()
 	isPlayerDead = false

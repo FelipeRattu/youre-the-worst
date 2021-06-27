@@ -2,6 +2,8 @@ extends StateMachine
 
 onready var primaryAnimationPlayer = parent.get_node("PrimaryAnimationPlayer")
 
+var icon = preload("res://Sprites/Oponents/Cowboy/CowboyIcon.png")
+
 func _ready():
 	add_state("Idle")
 	add_state("Run")
@@ -10,6 +12,8 @@ func _ready():
 	add_state("Fall")
 	add_state("Finish")
 	call_deferred("set_state", states.Idle)
+	
+	GameManager.change_icon(icon)
 
 func _state_logic(delta):
 	

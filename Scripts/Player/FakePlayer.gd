@@ -34,6 +34,8 @@ var slowdown = false
 
 var tutorialBoxIndex : int = 0
 
+signal pushbackBarFull
+
 func send_x_position():
 	return int(position.x)
 
@@ -140,3 +142,8 @@ func send_pushback_timer_vaue_to_manager():
 func _on_ProgressBar_value_changed(value):
 	if value == 0:
 		$PushbackFull.play()
+
+
+func _on_PushbackFull_finished():
+	if tutorialBoxIndex == 0:
+		emit_signal("pushbackBarFull")

@@ -22,6 +22,7 @@ _global_script_class_icons={
 
 config/name="You're the worst"
 run/main_scene="res://Scenes/GameTriggers/Menu.tscn"
+boot_splash/bg_color=Color( 0.12549, 0.145098, 0.192157, 1 )
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
 
@@ -121,4 +122,5 @@ ui_pause={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0.298039, 0.298039, 0.298039, 1 )
 environment/default_environment="res://default_env.tres"
